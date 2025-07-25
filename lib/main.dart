@@ -8,82 +8,21 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   Widget buildRowTExt(String title) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),
-        ),
-        Text('see more', style: TextStyle(color: Colors.grey)),
-      ],
-    );
-  }
-
-  Widget buildStackListViewChild() {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      elevation: 0.7,
-      child: Stack(
-        alignment: Alignment.topRight,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              'images/photo_5.jpeg',
-              height: 300,
-              width: 250,
-              fit: BoxFit.cover,
-            ),
+          Text(
+            title,
+            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
           ),
-          Container(
-            width: 250,
-            height: 300,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.black.withAlpha(10),
-                  Colors.black.withAlpha(150),
-                ],
-                stops: [0.4, 1],
-              ),
-            ),
-
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'DreamsVille House',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  Text(
-                    'JL Sultan iskander Muda',
-                    style: TextStyle(color: Colors.white70),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-            child: Container(
-              padding: EdgeInsets.only(left: 2, right: 2),
-              width: 70,
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [Icon(Icons.abc), Text('18 km')],
-              ),
+          Text(
+            'see more',
+            style: TextStyle(
+              color: Color.fromARGB(133, 133, 133, 1),
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
             ),
           ),
         ],
@@ -91,65 +30,136 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Widget buildListViewChild() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget buildStackListViewChild() {
+    return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              'images/photo-13.jpeg',
-              width: 70,
-              height: 80,
-              fit: BoxFit.cover,
+        Image.asset(
+          'images/Image.png',
+          width: 222,
+          height: 272,
+          fit: BoxFit.cover,
+        ),
+        Positioned(
+          top: 25,
+          right: 26,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: EdgeInsets.fromLTRB(8, 4, 10, 4),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset('images/icons/iC_Notification.png'),
+                Text('18 km'),
+              ],
             ),
           ),
         ),
-        SizedBox(width: 10),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
+
+        Container(
+          width: 222,
+          height: 272,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromARGB(0, 13, 13, 13),
+                Color.fromARGB(1, 0, 0, 0),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          left: 25,
+          top: 190,
+          child: Text(
+            'DreamsVille House',
+
+            style: TextStyle(
+              color: const Color.fromARGB(255, 255, 2555, 255),
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        Positioned(
+          left: 25,
+          top: 210,
+          child: Text(
+            'JL Sultan iskander Muda',
+            style: TextStyle(color: Color.fromARGB(255, 215, 215, 215)),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget buildListViewChild() {
+    return SizedBox(
+      height: 70,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 5),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'Orchad House',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
-            ),
-            Text(
-              'Rp 2500 000 000 / Year',
-              style: TextStyle(color: Colors.blueAccent),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Row(
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.bedroom_parent_outlined,
-                        color: Colors.grey,
-                        size: 20,
-                      ),
-                      Text('6 Bedroom', style: TextStyle(color: Colors.grey)),
-                    ],
+            Image.asset('images/imageList/Image1.png', width: 74, height: 70),
+
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Orchad House',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  'Rp 2500 000 000 / Year',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                    color: Colors.blueAccent,
                   ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.bathroom_outlined,
-                        color: Colors.grey,
-                        size: 20,
-                      ),
-                      Text('4 Bathroom', style: TextStyle(color: Colors.grey)),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+                Row(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset('images/icons/IC_Bed.png'),
+                        Text(
+                          '6 Bedroom',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Image.asset('images/icons/IC_Bath.png'),
+                        Text(
+                          '4 Bathroom',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 
@@ -163,35 +173,35 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'Home',
-            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 25.0),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0),
           ),
           centerTitle: true,
-          actions: [
-            Icon(Icons.add_alert, size: 30, weight: 50, color: Colors.black),
-          ],
-          actionsPadding: EdgeInsets.only(right: 20),
+          actions: [Image.asset('images/icons/IC_Notification.png')],
+          actionsPadding: EdgeInsets.only(right: 23.5),
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 10),
+        body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               buildRowTExt('Near from you'),
               SizedBox(
-                height: 300,
-                width: double.infinity,
+                height: 270,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
+                    buildStackListViewChild(),
                     buildStackListViewChild(),
                     buildStackListViewChild(),
                   ],
                 ),
               ),
               buildRowTExt('Near from you'),
+              SizedBox(height: 10),
+
               SizedBox(
-                height: 200,
-                width: double.infinity,
+                width: 305,
+                height: 270,
                 child: ListView(
                   children: [
                     buildListViewChild(),
